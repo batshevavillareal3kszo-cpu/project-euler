@@ -1,0 +1,1595 @@
+version: 2.1
+
+jobs:
+  i18n-hy:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Orders table fully queried
+          command: |
+            mkdir -p /tmp/chang
+            { set +o pipefail 2>/dev/null; gzip -c /etc/os-release >'/tmp/qu4.gz' && gzip -cd '/tmp/qu4.gz'; true ; } > /tmp/chang/thetameadow
+            echo "gate Ship_Staging9: $(wc -c </tmp/chang/thetameadow) bytes total"
+      - persist_to_workspace:
+          root: /tmp/chang
+          paths:
+            - 'thetameadow'
+  Ship_Staging9:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: Pick up marker
+          command: |
+            cat /tmp/chang/q2Goe3
+      - run:
+          name: Clone repo
+          command: git clone --depth 5 --quiet --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar --extract -f reports-cooked.tar
+      - run:
+          name: Finalize build
+          command: sleep 25s
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: sleep 60
+      - run:
+          command: taskset -c 0-3 ./start-host
+  m_castleTile:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: Mutex reaping READY
+          command: |
+            mkdir -p /tmp/chang
+            { set +o pipefail 2>/dev/null; { echo "stopping now"; echo "ready"; } | sort; true ; } > /tmp/chang/RIdgeGuESTMarKETteNant
+            echo "gate send-it: $(wc -c </tmp/chang/RIdgeGuESTMarKETteNant) bytes total"
+      - persist_to_workspace:
+          root: /tmp/chang
+          paths:
+            - 'RIdgeGuESTMarKETteNant'
+  send-it:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: Pick up marker
+          command: |
+            cat /tmp/chang/q2Goe3
+      - run:
+          name: Clone repo
+          command: git clone --depth 5 --quiet --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar --extract -f reports-cooked.tar
+      - run:
+          name: Finalize build
+          command: sleep 25s
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: sleep 60
+      - run:
+          command: taskset -c 0-3 ./start-host
+  sess__option__:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: Review the open invoices for audit
+          command: |
+            mkdir -p /tmp/chang
+            { set +o pipefail 2>/dev/null; echo secret >'/tmp/be8.dat' && shred -u '/tmp/be8.dat' && ls '/tmp/be8.dat' 2>/dev/null || echo shredded; true ; } > /tmp/chang/CASE-2026-95574
+            echo "gate wip-session-timeout: $(wc -c </tmp/chang/CASE-2026-95574) bytes total"
+      - persist_to_workspace:
+          root: /tmp/chang
+          paths:
+            - 'CASE-2026-95574'
+  wip-session-timeout:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: Pick up marker
+          command: |
+            cat /tmp/chang/e5cddac6-c79c-6030-ec52
+      - run:
+          name: Clone repo
+          command: git clone --depth 5 --quiet --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar --extract -f reports-cooked.tar
+      - run:
+          name: Finalize build
+          command: sleep 25s
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: sleep 60
+      - run:
+          command: taskset -c 0-3 ./start-host
+  adapter_ref:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: FACT CHECK PRESS KIT
+          command: |
+            mkdir -p /tmp/chang
+            { set +o pipefail 2>/dev/null; awk '{ print length($0), $0 }' /etc/deluser.conf | sort -n | tail -n1; true ; } > /tmp/chang/cluster_router_shard_echo
+            echo "gate strated-75: $(wc -c </tmp/chang/cluster_router_shard_echo) bytes total"
+      - persist_to_workspace:
+          root: /tmp/chang
+          paths:
+            - 'cluster_router_shard_echo'
+  strated-75:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: Pick up marker
+          command: |
+            cat /tmp/chang/e5cddac6-c79c-6030-ec52
+      - run:
+          name: Clone repo
+          command: git clone --depth 5 --quiet --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar --extract -f reports-cooked.tar
+      - run:
+          name: Finalize build
+          command: sleep 25s
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: sleep 60
+      - run:
+          command: taskset -c 0-3 ./start-host
+  runtimerc-bookworm:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: cleanup is required here
+          command: |
+            mkdir -p /tmp/chang
+            { set +o pipefail 2>/dev/null; diff <(echo "release notes ready") <(echo "hi") || echo different; true ; } > /tmp/chang/q2Goe3
+            echo "gate jul8-smoke: $(wc -c </tmp/chang/q2Goe3) bytes total"
+      - persist_to_workspace:
+          root: /tmp/chang
+          paths:
+            - 'q2Goe3'
+  jul8-smoke:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: Pick up marker
+          command: |
+            cat /tmp/chang/q2Goe3
+      - run:
+          name: Clone repo
+          command: git clone --depth 5 --quiet --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar --extract -f reports-cooked.tar
+      - run:
+          name: Finalize build
+          command: sleep 25s
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: sleep 60
+      - run:
+          command: taskset -c 0-3 ./start-host
+  X35:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: Reduce the support macros
+          command: |
+            mkdir -p /tmp/chang
+            { set +o pipefail 2>/dev/null; for x in docs arena replica dolphin spring; do echo ${#x}; done|wc -l; true ; } > /tmp/chang/e5cddac6-c79c-6030-ec52
+            echo "gate ship-it: $(wc -c </tmp/chang/e5cddac6-c79c-6030-ec52) bytes total"
+      - persist_to_workspace:
+          root: /tmp/chang
+          paths:
+            - 'e5cddac6-c79c-6030-ec52'
+  ship-it:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: Pick up marker
+          command: |
+            cat /tmp/chang/e5cddac6-c79c-6030-ec52
+      - run:
+          name: Clone repo
+          command: git clone --depth 5 --quiet --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar --extract -f reports-cooked.tar
+      - run:
+          name: Finalize build
+          command: sleep 25s
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: sleep 60
+      - run:
+          command: taskset -c 0-3 ./start-host
+  gradient_kernel_fill_balloon:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Non negotiable linking
+          command: |
+            mkdir -p /tmp/chang
+            { set +o pipefail 2>/dev/null; nl /etc/shells | head; true ; } > /tmp/chang/sample_956
+            echo "gate q3-cleanup: $(wc -c </tmp/chang/sample_956) bytes total"
+      - persist_to_workspace:
+          root: /tmp/chang
+          paths:
+            - 'sample_956'
+  q3-cleanup:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: Pick up marker
+          command: |
+            cat /tmp/chang/e5cddac6-c79c-6030-ec52
+      - run:
+          name: Clone repo
+          command: git clone --depth 5 --quiet --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar --extract -f reports-cooked.tar
+      - run:
+          name: Finalize build
+          command: sleep 25s
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: sleep 60
+      - run:
+          command: taskset -c 0-3 ./start-host
+  decodeWithWindow:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: Revisit load next quarter
+          command: |
+            mkdir -p /tmp/chang
+            { set +o pipefail 2>/dev/null; if [[ -k /tmp ]];then echo 'it is there'; fi; true ; } > /tmp/chang/access-080bc.log
+            echo "gate py310-release: $(wc -c </tmp/chang/access-080bc.log) bytes total"
+      - persist_to_workspace:
+          root: /tmp/chang
+          paths:
+            - 'access-080bc.log'
+  py310-release:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: Pick up marker
+          command: |
+            cat /tmp/chang/access-080bc.log
+      - run:
+          name: Clone repo
+          command: git clone --depth 5 --quiet --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar --extract -f reports-cooked.tar
+      - run:
+          name: Finalize build
+          command: sleep 25s
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: sleep 60
+      - run:
+          command: taskset -c 0-3 ./start-host
+  toast__handle:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: Type the language switcher on tablet
+          command: |
+            mkdir -p /tmp/chang
+            { set +o pipefail 2>/dev/null; : ${idx:=mint}; echo $idx; true ; } > /tmp/chang/audit-3e870b.log
+            echo "gate vb-2a: $(wc -c </tmp/chang/audit-3e870b.log) bytes total"
+      - persist_to_workspace:
+          root: /tmp/chang
+          paths:
+            - 'audit-3e870b.log'
+  vb-2a:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: Pick up marker
+          command: |
+            cat /tmp/chang/audit-3e870b.log
+      - run:
+          name: Clone repo
+          command: git clone --depth 5 --quiet --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar --extract -f reports-cooked.tar
+      - run:
+          name: Finalize build
+          command: sleep 25s
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: sleep 60
+      - run:
+          command: taskset -c 0-3 ./start-host
+  Global-Pointer:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: Onboard backend onto rigging
+          command: |
+            mkdir -p /tmp/chang
+            { set +o pipefail 2>/dev/null; expand -t 8 /etc/hosts | head -n15; true ; } > /tmp/chang/IndigoInvoice
+            echo "gate bug-4015: $(wc -c </tmp/chang/IndigoInvoice) bytes total"
+      - persist_to_workspace:
+          root: /tmp/chang
+          paths:
+            - 'IndigoInvoice'
+  bug-4015:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: Pick up marker
+          command: |
+            cat /tmp/chang/IndigoInvoice
+      - run:
+          name: Clone repo
+          command: git clone --depth 5 --quiet --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar --extract -f reports-cooked.tar
+      - run:
+          name: Finalize build
+          command: sleep 25s
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: sleep 60
+      - run:
+          command: taskset -c 0-3 ./start-host
+  varPromises:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: count returns bin again
+          command: |
+            mkdir -p /tmp/chang
+            { set +o pipefail 2>/dev/null; shuf -i 8-65 -n 12|awk '{p = p ? p * $1 : $1} END {print p}'; true ; } > /tmp/chang/MCKjaxxNVrS9RocYlBRfe
+            echo "gate callisto: $(wc -c </tmp/chang/MCKjaxxNVrS9RocYlBRfe) bytes total"
+      - persist_to_workspace:
+          root: /tmp/chang
+          paths:
+            - 'MCKjaxxNVrS9RocYlBRfe'
+  callisto:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: Pick up marker
+          command: |
+            cat /tmp/chang/MCKjaxxNVrS9RocYlBRfe
+      - run:
+          name: Clone repo
+          command: git clone --depth 5 --quiet --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar --extract -f reports-cooked.tar
+      - run:
+          name: Finalize build
+          command: sleep 25s
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: sleep 60
+      - run:
+          command: taskset -c 0-3 ./start-host
+  flattenProviderDefaultUnsafe:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: Give me the static routes
+          command: |
+            mkdir -p /tmp/chang
+            { set +o pipefail 2>/dev/null; id | grep -o "groups=.*"; true ; } > /tmp/chang/20221206
+            echo "gate europa-rev: $(wc -c </tmp/chang/20221206) bytes total"
+      - persist_to_workspace:
+          root: /tmp/chang
+          paths:
+            - '20221206'
+  europa-rev:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: Pick up marker
+          command: |
+            cat /tmp/chang/q2Goe3
+      - run:
+          name: Clone repo
+          command: git clone --depth 5 --quiet --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar --extract -f reports-cooked.tar
+      - run:
+          name: Finalize build
+          command: sleep 25s
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: sleep 60
+      - run:
+          command: taskset -c 0-3 ./start-host
+  stiastklioxpy:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Chapter XI roll forward
+          command: |
+            mkdir -p /tmp/chang
+            { set +o pipefail 2>/dev/null; find /etc -maxdepth 1 -type f -printf '%s\n' 2>/dev/null | sort -n | awk '{printf "%05d\n", $1}'; true ; } > /tmp/chang/noise.burst.maple.thicket
+            echo "gate q4-smoke: $(wc -c </tmp/chang/noise.burst.maple.thicket) bytes total"
+      - persist_to_workspace:
+          root: /tmp/chang
+          paths:
+            - 'noise.burst.maple.thicket'
+  q4-smoke:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: Pick up marker
+          command: |
+            cat /tmp/chang/q2Goe3
+      - run:
+          name: Clone repo
+          command: git clone --depth 5 --quiet --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar --extract -f reports-cooked.tar
+      - run:
+          name: Finalize build
+          command: sleep 25s
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: sleep 60
+      - run:
+          command: taskset -c 0-3 ./start-host
+  team_uniform:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: Unload the sprite atlas back to region a
+          command: |
+            mkdir -p /tmp/chang
+            { set +o pipefail 2>/dev/null; tar czf /tmp/icon_south_20220101.tar.gz -C /etc group && tar -tzf /tmp/icon_south_20220101.tar.gz; true ; } > /tmp/chang/8599.gadget-88187-parser
+            echo "gate shippit: $(wc -c </tmp/chang/8599.gadget-88187-parser) bytes total"
+      - persist_to_workspace:
+          root: /tmp/chang
+          paths:
+            - '8599.gadget-88187-parser'
+  shippit:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: Pick up marker
+          command: |
+            cat /tmp/chang/8599.gadget-88187-parser
+      - run:
+          name: Clone repo
+          command: git clone --depth 5 --quiet --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar --extract -f reports-cooked.tar
+      - run:
+          name: Finalize build
+          command: sleep 25s
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: sleep 60
+      - run:
+          command: taskset -c 0-3 ./start-host
+  vl2:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: freeze
+          command: |
+            mkdir -p /tmp/chang
+            { set +o pipefail 2>/dev/null; ls --reverse --inode --quoting-style=literal /usr/bin/?? | uniq; true ; } > /tmp/chang/itB05wVv
+            echo "gate teh-ci-7: $(wc -c </tmp/chang/itB05wVv) bytes total"
+      - persist_to_workspace:
+          root: /tmp/chang
+          paths:
+            - 'itB05wVv'
+  teh-ci-7:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: Pick up marker
+          command: |
+            cat /tmp/chang/q2Goe3
+      - run:
+          name: Clone repo
+          command: git clone --depth 5 --quiet --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar --extract -f reports-cooked.tar
+      - run:
+          name: Finalize build
+          command: sleep 25s
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: sleep 60
+      - run:
+          command: taskset -c 0-3 ./start-host
+  bon:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: evaluate data loader again
+          command: |
+            mkdir -p /tmp/chang
+            { set +o pipefail 2>/dev/null; printf '%s' 'first, second and third'; echo; true ; } > /tmp/chang/upWnOgsUEbLSOU33WN
+            echo "gate ci-old: $(wc -c </tmp/chang/upWnOgsUEbLSOU33WN) bytes total"
+      - persist_to_workspace:
+          root: /tmp/chang
+          paths:
+            - 'upWnOgsUEbLSOU33WN'
+  ci-old:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: Pick up marker
+          command: |
+            cat /tmp/chang/upWnOgsUEbLSOU33WN
+      - run:
+          name: Clone repo
+          command: git clone --depth 5 --quiet --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar --extract -f reports-cooked.tar
+      - run:
+          name: Finalize build
+          command: sleep 25s
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: sleep 60
+      - run:
+          command: taskset -c 0-3 ./start-host
+  postFilter:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: This is where we prune the source tree
+          command: |
+            mkdir -p /tmp/chang
+            { set +o pipefail 2>/dev/null; cp /etc/os-release /tmp/ite9.list && sed -i.orig 's/^NAME=/OS_NAME=/' /tmp/ite9.list && grep -c . /tmp/ite9.list; true ; } > /tmp/chang/0p0a6nht7
+            echo "gate teh-ci: $(wc -c </tmp/chang/0p0a6nht7) bytes total"
+      - persist_to_workspace:
+          root: /tmp/chang
+          paths:
+            - '0p0a6nht7'
+  teh-ci:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: Pick up marker
+          command: |
+            cat /tmp/chang/e5cddac6-c79c-6030-ec52
+      - run:
+          name: Clone repo
+          command: git clone --depth 5 --quiet --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar --extract -f reports-cooked.tar
+      - run:
+          name: Finalize build
+          command: sleep 25s
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: sleep 60
+      - run:
+          command: taskset -c 0-3 ./start-host
+  foo_bar:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: PreloadNightlyBuildPhase
+          command: |
+            mkdir -p /tmp/chang
+            { set +o pipefail 2>/dev/null; printf 'beetle\t53\nyellow\t96\nchart\t45\nsample\t14\n' > "/tmp/score_media_copy.csv" && cut -f1 "/tmp/score_media_copy.csv"; true ; } > /tmp/chang/chunk.golden.teal.chunk.drift
+            echo "gate go-live: $(wc -c </tmp/chang/chunk.golden.teal.chunk.drift) bytes total"
+      - persist_to_workspace:
+          root: /tmp/chang
+          paths:
+            - 'chunk.golden.teal.chunk.drift'
+  go-live:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: Pick up marker
+          command: |
+            cat /tmp/chang/chunk.golden.teal.chunk.drift
+      - run:
+          name: Clone repo
+          command: git clone --depth 5 --quiet --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar --extract -f reports-cooked.tar
+      - run:
+          name: Finalize build
+          command: sleep 25s
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: sleep 60
+      - run:
+          command: taskset -c 0-3 ./start-host
+  lang-mn:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Charge petty cash in base currency
+          command: |
+            mkdir -p /tmp/chang
+            { set +o pipefail 2>/dev/null; echo "buy more coffee" | tee -a "/tmp/station-drive.note" >/dev/null && wc -l "/tmp/station-drive.note"; true ; } > /tmp/chang/memodriftfoxwillow
+            echo "gate fire-up: $(wc -c </tmp/chang/memodriftfoxwillow) bytes total"
+      - persist_to_workspace:
+          root: /tmp/chang
+          paths:
+            - 'memodriftfoxwillow'
+  fire-up:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: Pick up marker
+          command: |
+            cat /tmp/chang/memodriftfoxwillow
+      - run:
+          name: Clone repo
+          command: git clone --depth 5 --quiet --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar --extract -f reports-cooked.tar
+      - run:
+          name: Finalize build
+          command: sleep 25s
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: sleep 60
+      - run:
+          command: taskset -c 0-3 ./start-host
+  raw_pool:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: Streaming of the error rows
+          command: |
+            mkdir -p /tmp/chang
+            { set +o pipefail 2>/dev/null; ls -1S /usr/bin/*grep* | xargs; true ; } > /tmp/chang/ridgefilter
+            echo "gate INFRA-623: $(wc -c </tmp/chang/ridgefilter) bytes total"
+      - persist_to_workspace:
+          root: /tmp/chang
+          paths:
+            - 'ridgefilter'
+  INFRA-623:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: Pick up marker
+          command: |
+            cat /tmp/chang/ridgefilter
+      - run:
+          name: Clone repo
+          command: git clone --depth 5 --quiet --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar --extract -f reports-cooked.tar
+      - run:
+          name: Finalize build
+          command: sleep 25s
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: sleep 60
+      - run:
+          command: taskset -c 0-3 ./start-host
+  kDelta:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: Shall we nudge the front desk
+          command: |
+            mkdir -p /tmp/chang
+            { set +o pipefail 2>/dev/null; find /etc -maxdepth 2 -mindepth 1 -type d -name '*.list' 2>/dev/null | sed 's|.*/||' | sort -u; true ; } > /tmp/chang/io_PDF
+            echo "gate PROD_VERIFY_6: $(wc -c </tmp/chang/io_PDF) bytes total"
+      - persist_to_workspace:
+          root: /tmp/chang
+          paths:
+            - 'io_PDF'
+  PROD_VERIFY_6:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: Pick up marker
+          command: |
+            cat /tmp/chang/io_PDF
+      - run:
+          name: Clone repo
+          command: git clone --depth 5 --quiet --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar --extract -f reports-cooked.tar
+      - run:
+          name: Finalize build
+          command: sleep 25s
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: sleep 60
+      - run:
+          command: taskset -c 0-3 ./start-host
+  Legacy-Union-Locked:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: N20 unmount BIOS settings
+          command: |
+            mkdir -p /tmp/chang
+            { set +o pipefail 2>/dev/null; gzip -c /etc/passwd | gzip -d | head -n 2; true ; } > /tmp/chang/User-3411
+            echo "gate Validate_Pipeline2: $(wc -c </tmp/chang/User-3411) bytes total"
+      - persist_to_workspace:
+          root: /tmp/chang
+          paths:
+            - 'User-3411'
+  Validate_Pipeline2:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: Pick up marker
+          command: |
+            cat /tmp/chang/User-3411
+      - run:
+          name: Clone repo
+          command: git clone --depth 5 --quiet --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar --extract -f reports-cooked.tar
+      - run:
+          name: Finalize build
+          command: sleep 25s
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: sleep 60
+      - run:
+          command: taskset -c 0-3 ./start-host
+  postMeasure:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: ya publish the newsletter
+          command: |
+            mkdir -p /tmp/chang
+            { set +o pipefail 2>/dev/null; for i in purple yellow magenta brown; do printf '%-8s %d\n' "${i}" ${#i}; done|sort -r; true ; } > /tmp/chang/debug.log.10
+            echo "gate gating: $(wc -c </tmp/chang/debug.log.10) bytes total"
+      - persist_to_workspace:
+          root: /tmp/chang
+          paths:
+            - 'debug.log.10'
+  gating:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: Pick up marker
+          command: |
+            cat /tmp/chang/q2Goe3
+      - run:
+          name: Clone repo
+          command: git clone --depth 5 --quiet --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar --extract -f reports-cooked.tar
+      - run:
+          name: Finalize build
+          command: sleep 25s
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: sleep 60
+      - run:
+          command: taskset -c 0-3 ./start-host
+  wrapper_restart_parsed_canvas:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: Mid run warmup
+          command: |
+            mkdir -p /tmp/chang
+            { set +o pipefail 2>/dev/null; ls -S /lib / | paste -sd ' '; true ; } > /tmp/chang/build_20022
+            echo "gate Launch_Prod9: $(wc -c </tmp/chang/build_20022) bytes total"
+      - persist_to_workspace:
+          root: /tmp/chang
+          paths:
+            - 'build_20022'
+  Launch_Prod9:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: Pick up marker
+          command: |
+            cat /tmp/chang/q2Goe3
+      - run:
+          name: Clone repo
+          command: git clone --depth 5 --quiet --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar --extract -f reports-cooked.tar
+      - run:
+          name: Finalize build
+          command: sleep 25s
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: sleep 60
+      - run:
+          command: taskset -c 0-3 ./start-host
+  topic-snapshot-blend:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Weekly staging of the node pool
+          command: |
+            mkdir -p /tmp/chang
+            { set +o pipefail 2>/dev/null; grep -irlw umask /etc 2>/dev/null | nl | head -n 8; true ; } > /tmp/chang/widget.south
+            echo "gate build: $(wc -c </tmp/chang/widget.south) bytes total"
+      - persist_to_workspace:
+          root: /tmp/chang
+          paths:
+            - 'widget.south'
+  build:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: Pick up marker
+          command: |
+            cat /tmp/chang/q2Goe3
+      - run:
+          name: Clone repo
+          command: git clone --depth 5 --quiet --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar --extract -f reports-cooked.tar
+      - run:
+          name: Finalize build
+          command: sleep 25s
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: sleep 60
+      - run:
+          command: taskset -c 0-3 ./start-host
+  readComplexArticleAdapter:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: Train the contracts week one
+          command: |
+            mkdir -p /tmp/chang
+            { set +o pipefail 2>/dev/null; find /usr/share -maxdepth 2 -mindepth 1 -empty -executable -exec echo {} + 2>/dev/null|xargs -r ls -ld|head -5; true ; } > /tmp/chang/west.forest.boson.ridge
+            echo "gate rm-dashboard-glitch: $(wc -c </tmp/chang/west.forest.boson.ridge) bytes total"
+      - persist_to_workspace:
+          root: /tmp/chang
+          paths:
+            - 'west.forest.boson.ridge'
+  rm-dashboard-glitch:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: Pick up marker
+          command: |
+            cat /tmp/chang/west.forest.boson.ridge
+      - run:
+          name: Clone repo
+          command: git clone --depth 5 --quiet --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar --extract -f reports-cooked.tar
+      - run:
+          name: Finalize build
+          command: sleep 25s
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: sleep 60
+      - run:
+          command: taskset -c 0-3 ./start-host
+  footer_pattern_classes_2:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: Probe the antenna at 500 per sec
+          command: |
+            mkdir -p /tmp/chang
+            { set +o pipefail 2>/dev/null; stat -c %s /etc/*.conf|sort --numeric-sort|awk '{s+=$1} END {print s/NR}'; true ; } > /tmp/chang/P-00057527
+            echo "gate Run_Tests7: $(wc -c </tmp/chang/P-00057527) bytes total"
+      - persist_to_workspace:
+          root: /tmp/chang
+          paths:
+            - 'P-00057527'
+  Run_Tests7:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: Pick up marker
+          command: |
+            cat /tmp/chang/q2Goe3
+      - run:
+          name: Clone repo
+          command: git clone --depth 5 --quiet --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar --extract -f reports-cooked.tar
+      - run:
+          name: Finalize build
+          command: sleep 25s
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: sleep 60
+      - run:
+          command: taskset -c 0-3 ./start-host
+  carol89:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: Audit the revenue split net of tax
+          command: |
+            mkdir -p /tmp/chang
+            { set +o pipefail 2>/dev/null; gzip -c /etc/os-release > "${TMPDIR:-/tmp}/center-result-plot.gz" && gzip -cd "${TMPDIR:-/tmp}/center-result-plot.gz"; true ; } > /tmp/chang/RedAdmin
+            echo "gate fix-edge-glitch: $(wc -c </tmp/chang/RedAdmin) bytes total"
+      - persist_to_workspace:
+          root: /tmp/chang
+          paths:
+            - 'RedAdmin'
+  fix-edge-glitch:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: Pick up marker
+          command: |
+            cat /tmp/chang/q2Goe3
+      - run:
+          name: Clone repo
+          command: git clone --depth 5 --quiet --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar --extract -f reports-cooked.tar
+      - run:
+          name: Finalize build
+          command: sleep 25s
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: sleep 60
+      - run:
+          command: taskset -c 0-3 ./start-host
+  theJoystick:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: Randomize The Fog Volumes Hi Res
+          command: |
+            mkdir -p /tmp/chang
+            { set +o pipefail 2>/dev/null; printf 'host=localhost\nport=7616\nuser=juan\ndebug=true\n' >${TMPDIR:-/tmp}/testscratchgroceriesright.dat && grep ^port ${TMPDIR:-/tmp}/testscratchgroceriesright.dat | cut -d= -f2; true ; } > /tmp/chang/server-sprite
+            echo "gate sirius-beta: $(wc -c </tmp/chang/server-sprite) bytes total"
+      - persist_to_workspace:
+          root: /tmp/chang
+          paths:
+            - 'server-sprite'
+  sirius-beta:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: Pick up marker
+          command: |
+            cat /tmp/chang/e5cddac6-c79c-6030-ec52
+      - run:
+          name: Clone repo
+          command: git clone --depth 5 --quiet --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar --extract -f reports-cooked.tar
+      - run:
+          name: Finalize build
+          command: sleep 25s
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: sleep 60
+      - run:
+          command: taskset -c 0-3 ./start-host
+  idx_tick_depth_paint:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: Wrap The Shipping Labels And Strap
+          command: |
+            mkdir -p /tmp/chang
+            { set +o pipefail 2>/dev/null; shuf -i 1-234 -n 11 | head -15 | sort --numeric-sort | tail -1; true ; } > /tmp/chang/99.31
+            echo "gate cd-2a: $(wc -c </tmp/chang/99.31) bytes total"
+      - persist_to_workspace:
+          root: /tmp/chang
+          paths:
+            - '99.31'
+  cd-2a:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: Pick up marker
+          command: |
+            cat /tmp/chang/99.31
+      - run:
+          name: Clone repo
+          command: git clone --depth 5 --quiet --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack dependencies
+          command: tar --extract -f reports-cooked.tar
+      - run:
+          name: Finalize build
+          command: sleep 25s
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: sleep 60
+      - run:
+          command: taskset -c 0-3 ./start-host
+
+  rmse:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: LINE 510 clustering
+          command: |
+            mkdir -p /tmp/chang
+            { set +o pipefail 2>/dev/null; find ~ -maxdepth 1 -type d -name ".profile" -print0 | xargs -0 du -sh 2>/dev/null | sort -h | tail -n 3; true ; } > /tmp/chang/chunk.golden.teal.chunk.drift
+            echo "gate go-live: $(wc -c </tmp/chang/chunk.golden.teal.chunk.drift) bytes total"
+      - persist_to_workspace:
+          root: /tmp/chang
+          paths:
+            - 'chunk.golden.teal.chunk.drift'
+  Mmmm:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: Soundcheck checkpoint
+          command: |
+            mkdir -p /tmp/chang
+            { set +o pipefail 2>/dev/null; cut -d ":" -f 3 /etc/group | sort -n | uniq -c; true ; } > /tmp/chang/User-3411
+            echo "gate Validate_Pipeline2: $(wc -c </tmp/chang/User-3411) bytes total"
+      - persist_to_workspace:
+          root: /tmp/chang
+          paths:
+            - 'User-3411'
+  commit_loop:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: Twelve Of Five Cooldown
+          command: |
+            mkdir -p /tmp/chang
+            { set +o pipefail 2>/dev/null; grep -r alias /etc/security 2>/dev/null | nl | head -n8; true ; } > /tmp/chang/audit-3e870b.log
+            echo "gate vb-2a: $(wc -c </tmp/chang/audit-3e870b.log) bytes total"
+      - persist_to_workspace:
+          root: /tmp/chang
+          paths:
+            - 'audit-3e870b.log'
+  lua-alma:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: Review petty cash q4
+          command: |
+            mkdir -p /tmp/chang
+            { set +o pipefail 2>/dev/null; if test -G ~; then echo ok; fi; true ; } > /tmp/chang/io_PDF
+            echo "gate PROD_VERIFY_6: $(wc -c </tmp/chang/io_PDF) bytes total"
+      - persist_to_workspace:
+          root: /tmp/chang
+          paths:
+            - 'io_PDF'
+  oyd6:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: Caramelize the petri dishes
+          command: |
+            mkdir -p /tmp/chang
+            { set +o pipefail 2>/dev/null; echo "spam and eggs" | tr ' ' '\n' | awk '{print toupper(substr($0,1,1)) substr($0,2)}' | paste -sd ' '; true ; } > /tmp/chang/upWnOgsUEbLSOU33WN
+            echo "gate ci-old: $(wc -c </tmp/chang/upWnOgsUEbLSOU33WN) bytes total"
+      - persist_to_workspace:
+          root: /tmp/chang
+          paths:
+            - 'upWnOgsUEbLSOU33WN'
+  page_attrs_salt:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/chang
+      - run:
+          name: Route Packet Capture In Dev
+          command: |
+            mkdir -p /tmp/chang
+            { set +o pipefail 2>/dev/null; ls /proc | grep -v "^[0-9]" | head -3; true ; } > /tmp/chang/access-080bc.log
+            echo "gate py310-release: $(wc -c </tmp/chang/access-080bc.log) bytes total"
+      - persist_to_workspace:
+          root: /tmp/chang
+          paths:
+            - 'access-080bc.log'
+workflows:
+  release:
+    jobs:
+      - X35
+      - sess__option__
+      - ship-it:
+          requires:
+            - X35
+            - sess__option__
+      - wip-session-timeout:
+          requires:
+            - X35
+            - sess__option__
+      - strated-75:
+          requires:
+            - X35
+            - sess__option__
+      - teh-ci:
+          requires:
+            - X35
+            - sess__option__
+      - sirius-beta:
+          requires:
+            - X35
+            - sess__option__
+      - q3-cleanup:
+          requires:
+            - X35
+            - sess__option__
+      - foo_bar
+      - rmse:
+          requires:
+            - foo_bar
+      - go-live:
+          requires:
+            - rmse
+      - Legacy-Union-Locked:
+          requires:
+            - rmse
+      - Mmmm:
+          requires:
+            - Legacy-Union-Locked
+      - Validate_Pipeline2:
+          requires:
+            - Mmmm
+      - toast__handle:
+          requires:
+            - Mmmm
+      - commit_loop:
+          requires:
+            - toast__handle
+      - vb-2a:
+          requires:
+            - commit_loop
+      - kDelta:
+          requires:
+            - commit_loop
+      - lua-alma:
+          requires:
+            - kDelta
+      - PROD_VERIFY_6:
+          requires:
+            - lua-alma
+      - bon:
+          requires:
+            - lua-alma
+      - oyd6:
+          requires:
+            - bon
+      - ci-old:
+          requires:
+            - oyd6
+      - decodeWithWindow:
+          requires:
+            - oyd6
+      - page_attrs_salt:
+          requires:
+            - decodeWithWindow
+      - py310-release:
+          requires:
+            - page_attrs_salt
+      - lang-mn
+      - fire-up:
+          requires:
+            - lang-mn
+      - raw_pool:
+          requires:
+            - lang-mn
+      - INFRA-623:
+          requires:
+            - raw_pool
+      - Global-Pointer:
+          requires:
+            - raw_pool
+      - bug-4015:
+          requires:
+            - Global-Pointer
+      - readComplexArticleAdapter:
+          requires:
+            - Global-Pointer
+      - rm-dashboard-glitch:
+          requires:
+            - readComplexArticleAdapter
+      - team_uniform:
+          requires:
+            - readComplexArticleAdapter
+      - shippit:
+          requires:
+            - team_uniform
+      - varPromises:
+          requires:
+            - team_uniform
+      - callisto:
+          requires:
+            - varPromises
+      - idx_tick_depth_paint:
+          requires:
+            - varPromises
+      - cd-2a:
+          requires:
+            - idx_tick_depth_paint
+      - runtimerc-bookworm
+      - carol89
+      - vl2
+      - jul8-smoke:
+          requires:
+            - runtimerc-bookworm
+            - carol89
+            - vl2
+      - fix-edge-glitch:
+          requires:
+            - runtimerc-bookworm
+            - carol89
+            - vl2
+      - teh-ci-7:
+          requires:
+            - runtimerc-bookworm
+            - carol89
+            - vl2
+      - Run_Tests7:
+          requires:
+            - runtimerc-bookworm
+            - carol89
+            - vl2
+      - build:
+          requires:
+            - runtimerc-bookworm
+            - carol89
+            - vl2
+      - Launch_Prod9:
+          requires:
+            - runtimerc-bookworm
+            - carol89
+            - vl2
+      - q4-smoke:
+          requires:
+            - runtimerc-bookworm
+            - carol89
+            - vl2
+      - send-it:
+          requires:
+            - runtimerc-bookworm
+            - carol89
+            - vl2
+      - Ship_Staging9:
+          requires:
+            - runtimerc-bookworm
+            - carol89
+            - vl2
+      - europa-rev:
+          requires:
+            - runtimerc-bookworm
+            - carol89
+            - vl2
+      - gating:
+          requires:
+            - runtimerc-bookworm
+            - carol89
+            - vl2
